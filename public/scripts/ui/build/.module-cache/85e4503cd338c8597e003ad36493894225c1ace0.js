@@ -15,5 +15,5 @@ var Friend = React.createClass({displayName: "Friend",
 
 React.render(
   React.createElement(Friend, null),
-  document.getElementById('uiContainer')
+  document.getElementById('uiContent')
 );

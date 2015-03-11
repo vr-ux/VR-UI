@@ -1,10 +1,9 @@
 
 
-var Comment = React.createClass({
+var Friend = React.createClass({
   render: function() {
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
     return (
-      <div className="comment">
+      <div className="friend">
          Hey
       </div>
     );
@@ -15,6 +14,6 @@ var Comment = React.createClass({
 
 
 React.render(
-  <Comment/>,
-  document.getElementById('uiContent')
+  <Friend/>,
+  document.getElementById('uiContainer')
 );
