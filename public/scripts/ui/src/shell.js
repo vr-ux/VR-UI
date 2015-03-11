@@ -1,9 +1,12 @@
 
 
 var Friend = React.createClass({
+  teleportToFriend: function(){
+    console.log('teleport!!!')
+  },
   render: function() {
     return (
-      <div className="friend">
+      <div className="friend" onClick ={this.teleportToFriend}>
          {this.props.name}
       </div>
     );
