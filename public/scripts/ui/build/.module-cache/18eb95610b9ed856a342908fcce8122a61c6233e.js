@@ -1,16 +1,16 @@
 
 
-var Friend = React.createClass({
+var Friend = React.createClass({displayName: "Friend",
   render: function() {
     return (
-      <div className="friend">
-         {this.props.name}
-      </div>
+      React.createElement("div", {className: "friend"}, 
+         "this.props.name"
+      )
     );
   }
 });
 
-var FriendList = React.createClass({
+var FriendPanel = React.createClass({displayName: "FriendPanel",
   loadFriendsFromServer: function(){
     $.ajax({
       url: this.props.url,
@@ -32,15 +32,11 @@ var FriendList = React.createClass({
     this.loadFriendsFromServer();
   },
   render: function() {
-    var friendNodes = this.state.data.map(function(friend, index){
-      return (
-        <Friend name = {friend.name} key={index}/>
-      );
-    });
+    debugger
     return (
-      <div className="friendList">
-        {friendNodes}
-      </div>
+      React.createElement("div", {className: "friend_panel"}, 
+        "Friends"
+      )
     );
   }
 });
@@ -48,6 +44,6 @@ var FriendList = React.createClass({
 
 
 React.render(
-  <FriendList url= "friends.json"/>,
+  React.createElement(FriendPanel, {url: "friends.json"}),
   document.getElementById('uiContainer')
 );
