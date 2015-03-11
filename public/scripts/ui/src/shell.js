@@ -1,4 +1,4 @@
-
+(function UI(){
 
 var Friend = React.createClass({
   teleportToFriend: function(){
@@ -33,6 +33,7 @@ var FriendList = React.createClass({
 
   componentDidMount: function(){
     this.loadFriendsFromServer();
+
   },
   render: function() {
     var friendNodes = this.state.data.map(function(friend, index){
@@ -54,3 +55,4 @@ React.render(
   <FriendList url= "friends.json"/>,
   document.getElementById('uiContainer')
 );
+})();

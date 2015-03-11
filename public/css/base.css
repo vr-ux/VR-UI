@@ -81,3 +81,11 @@ body
   margin: 0px;
   overflow: hidden;
 }
+
+.friendList{
+  background: blue;
+}
+
+.friendList:hover{
+  background: red;
+}

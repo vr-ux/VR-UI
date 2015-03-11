@@ -1,4 +1,4 @@
-(function UI(){
+
 
 var Friend = React.createClass({displayName: "Friend",
   teleportToFriend: function(){
@@ -55,4 +55,3 @@ React.render(
   React.createElement(FriendList, {url: "friends.json"}),
   document.getElementById('uiContainer')
 );
-})();
