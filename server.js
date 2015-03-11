@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/friends.json', function(req, res) {
-  fs.readFile('comments.json', function(err, data) {
+  fs.readFile('friends.json', function(err, data) {
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
   });

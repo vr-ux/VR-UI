@@ -10,8 +10,9 @@ var Friend = React.createClass({displayName: "Friend",
   }
 });
 
-var FriendPanel = React.createClass({displayName: "FriendPanel",
+var Friends = React.createClass({displayName: "Friends",
   loadFriendsFromServer: function(){
+    debugger
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -19,22 +20,24 @@ var FriendPanel = React.createClass({displayName: "FriendPanel",
         this.setState({data : data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.proprs.url, status, err.toString());
       }.bind(this)
     });
-  },
-
-  getInititalState: function(){
-    return {data:[]};
   },
 
   componentDidMount: function(){
     this.loadFriendsFromServer();
   },
   render: function() {
+    debugger
+    var friendNodes = this.state.data.map(function(friend, index){
+      return(
+        React.createElement(Friend, {name: friend.name, key: index})
+      )
+    });
     return (
-      React.createElement("div", {className: "friend_panel"}, 
-        "Friends"
+      React.createElement("div", {className: "friends"}, 
+        friendNodes
       )
     );
   }
@@ -44,6 +47,6 @@ var FriendPanel = React.createClass({displayName: "FriendPanel",
 
 
 React.render(
-  React.createElement(FriendPanel, {url: "friends.json"}),
+  React.createElement(Friends, {url: "friends.json"}),
   document.getElementById('uiContainer')
 );

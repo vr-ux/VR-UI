@@ -12,6 +12,7 @@ var Friend = React.createClass({displayName: "Friend",
 
 var FriendPanel = React.createClass({displayName: "FriendPanel",
   loadFriendsFromServer: function(){
+    debugger
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -19,7 +20,7 @@ var FriendPanel = React.createClass({displayName: "FriendPanel",
         this.setState({data : data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.proprs.url, status, err.toString());
       }.bind(this)
     });
   },
