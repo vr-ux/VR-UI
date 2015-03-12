@@ -21,9 +21,7 @@
   var FriendList = React.createClass({displayName: "FriendList",
     render: function(){
       return(
-        React.createElement("div", {className: "friendListContainer"}, 
-          React.createElement("ul", {className: "friendList"}, this.props.friends)
-        )
+        React.createElement("ul", null, this.props.friends)
       );
     }
   })
@@ -67,7 +65,7 @@
       });
       return (
         React.createElement("div", {className: "friendPanel"}, 
-          React.createElement("h2", {className: "friendHeader", onClick: this.toggleMenu}, 
+          React.createElement("h2", {className: "friendHeader"}, 
             "Friends",  
             React.createElement("span", null, " ",  this.state.data.length, " online")
           ), 

@@ -13,5 +13,15 @@
         "name": "Douglas Calhoun",
         "id": 2,
         "position": {"x": 50, "y": 0, "z" : -40}
+    },
+      {
+        "name": "Arielle Levin",
+        "id": 3,
+        "position": {"x": 10, "y": 0, "z" : 40}
+    },
+      {
+        "name": "Taylor Swift",
+        "id": 4,
+        "position": {"x": -50, "y": 0, "z" : 60}
     }
 ]

@@ -21,9 +21,7 @@
   var FriendList = React.createClass({displayName: "FriendList",
     render: function(){
       return(
-        React.createElement("div", {className: "friendListContainer"}, 
-          React.createElement("ul", {className: "friendList"}, this.props.friends)
-        )
+        React.createElement("ul", {className: "friendList"}, this.props.friends)
       );
     }
   })

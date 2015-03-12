@@ -21,7 +21,9 @@
   var FriendList = React.createClass({
     render: function(){
       return(
-        <ul>{this.props.friends}</ul>
+        <div className = "friendListContainer">
+          <ul className = "friendList">{this.props.friends}</ul>
+        </div>
       );
     }
   })
@@ -65,7 +67,7 @@
       });
       return (
         <div className = "friendPanel">
-          <h2>
+          <h2 className = "friendHeader" onClick = {this.toggleMenu}>
             Friends 
             <span> { this.state.data.length} online</span>
           </h2>
