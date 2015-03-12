@@ -7,6 +7,7 @@
       World.friends.highlight(this.props.id);
     },
     unHighlightFriend: function(){
+      console.log('hsh')
       World.friends.unHighlight(this.props.id);
     },
     render: function() {
@@ -38,7 +39,6 @@
     },
 
     componentDidMount: function(){
-      key('space', this.handleKeyDown);
       this.loadFriendsFromServer();
     },
     handleKeyDown: function(){
@@ -52,7 +52,7 @@
         );
       });
       return (
-        React.createElement("div", {className: "friendList"}, 
+        React.createElement("div", {className: "friendList", onKeyDown: this.handleKeyDown}, 
           friendNodes
         )
       );

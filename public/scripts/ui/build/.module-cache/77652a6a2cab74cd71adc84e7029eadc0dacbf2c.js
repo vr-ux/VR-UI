@@ -38,7 +38,6 @@
     },
 
     componentDidMount: function(){
-      key('space', this.handleKeyDown);
       this.loadFriendsFromServer();
     },
     handleKeyDown: function(){
@@ -52,7 +51,7 @@
         );
       });
       return (
-        React.createElement("div", {className: "friendList"}, 
+        React.createElement("div", {className: "friendList", onKeyDown: this.handleKeyDown}, 
           friendNodes
         )
       );

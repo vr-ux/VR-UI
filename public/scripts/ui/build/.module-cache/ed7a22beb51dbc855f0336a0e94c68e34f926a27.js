@@ -7,6 +7,7 @@
       World.friends.highlight(this.props.id);
     },
     unHighlightFriend: function(){
+      console.log('hsh')
       World.friends.unHighlight(this.props.id);
     },
     render: function() {
@@ -38,11 +39,7 @@
     },
 
     componentDidMount: function(){
-      key('space', this.handleKeyDown);
       this.loadFriendsFromServer();
-    },
-    handleKeyDown: function(){
-      console.log('hey down');
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index){
@@ -60,6 +57,7 @@
   });
 
   React.render(
+    React.createElement("h2", null, "Friends"),
     React.createElement(FriendList, {url: "friends.json"}),
     document.getElementById('uiContainer')
   );

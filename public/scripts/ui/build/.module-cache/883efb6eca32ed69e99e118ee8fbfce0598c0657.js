@@ -38,7 +38,7 @@
     },
 
     componentDidMount: function(){
-      key('space', this.handleKeyDown);
+      key('space', this.handleKeyDown)
       this.loadFriendsFromServer();
     },
     handleKeyDown: function(){
@@ -61,6 +61,6 @@
 
   React.render(
     React.createElement(FriendList, {url: "friends.json"}),
-    document.getElementById('uiContainer')
+    document.body
   );
 })();
