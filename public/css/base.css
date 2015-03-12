@@ -1,6 +1,6 @@
 body {
   background: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Impact, Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
@@ -25,7 +25,6 @@ ul {
 
 body 
 {
-  font-family: Monospace;
   font-weight: bold;
   background-color: #ccccff;
   margin: 0px;
@@ -33,15 +32,16 @@ body
 }
 
 .friendPanel{
-  background: rgba(200, 20, 200, 0.5);
+  background: rgba(232, 12, 122, 0.5);
   border-radius: 10px;
   width: 300px;
 
 }
 
 .friendHeader{
-  text-align: center;
   cursor: pointer;
+  padding-left: 40px;
+  margin-bottom: 0px;
 }
 
 .friend:hover{
@@ -51,5 +51,6 @@ body
 
 .friendListContainer{
   max-height: 500px;
-  overflow: auto
+  overflow: auto;
+  background: rgba(155, 12, 122, 1);
 }

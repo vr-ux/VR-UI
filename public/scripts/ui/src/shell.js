@@ -68,7 +68,7 @@
       return (
         <div className = "friendPanel">
           <h2 className = "friendHeader" onClick = {this.toggleMenu}>
-            Friends 
+            Friends: 
             <span> { this.state.data.length} online</span>
           </h2>
           {this.state.visible ? <FriendList friends ={friendNodes}/> : null}
