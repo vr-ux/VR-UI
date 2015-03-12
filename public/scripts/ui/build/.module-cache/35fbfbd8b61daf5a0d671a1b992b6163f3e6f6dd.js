@@ -1,24 +1,21 @@
 (function UI() {
 
-  var Friend = React.createClass({
-    displayName: "Friend",
+  var Friend = React.createClass({displayName: "Friend",
     teleportToFriend: function() {
       console.log('teleport!!!')
     },
     render: function() {
-      return (
-        React.createElement("div", {
-            className: "friend",
-            onClick: this.teleportToFriend
-          },
-          this.props.name
-        )
+      return ( React.createElement("div", {className: "friend", 
+        onClick: 
+          this.teleportToFriend
+        }, " ", 
+          this.props.name, 
+        " ")
       );
     }
   });
 
-  var FriendList = React.createClass({
-    displayName: "FriendList",
+  var FriendList = React.createClass({displayName: "FriendList",
     loadFriendsFromServer: function() {
       $.ajax({
         url: this.props.url,
@@ -46,27 +43,25 @@
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index) {
-        return (
-          React.createElement(Friend, {
-            name: friend.name,
-            key: index
-          })
+        return ( React.createElement(Friend, {name: 
+            friend.name, 
+          
+          key: 
+            index
+          }
+          )
         );
       });
-      return (
-        React.createElement("div", {
-            className: "friendList"
-          },
-          friendNodes
-        )
-      );
+      return ( React.createElement("div", {className: "friendList"}, " ", 
+        friendNodes, 
+      " "));
     }
   });
 
-  React.render(
-    React.createElement(FriendList, {
-      url: "friends.json"
-    }),
+
+
+  React.render( 
+    React.createElement(FriendList, {url: "friends.json"}/) ,
     document.getElementById('uiContainer')
   );
 })();

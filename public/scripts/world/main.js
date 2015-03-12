@@ -52,6 +52,8 @@ var init = function() {
 	light.position.y = 50;
 	scene.add(light);
 
+	World.friends = new Friends();
+
 }
 
 

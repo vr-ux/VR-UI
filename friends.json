@@ -1,8 +1,10 @@
 [
     {
-        "name": "Anitra Appa"
+        "name": "Anitra Appa",
+        "position": {"x": 10, "z": -40}
     },
     {
-        "name": "Ben Hoffman"
+        "name": "Ben Hoffman",
+        "position": {"x": -10, "z" : -20}
     }
 ]

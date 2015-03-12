@@ -36,7 +36,7 @@
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index){
-        World.friends.place(friend.position);
+        World.friends.place(data.position);
         return (
           React.createElement(Friend, {name: friend.name, key: index})
         );

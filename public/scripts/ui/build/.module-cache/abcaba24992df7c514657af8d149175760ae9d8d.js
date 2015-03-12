@@ -19,7 +19,6 @@
         dataType: 'json',
         success: function(data) {
           this.setState({data : data});
-
         }.bind(this),
         error: function(xhr, status, err) {
           console.error(this.ps.url, status, err.toString());
@@ -36,7 +35,6 @@
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index){
-        World.friends.place(friend.position);
         return (
           React.createElement(Friend, {name: friend.name, key: index})
         );

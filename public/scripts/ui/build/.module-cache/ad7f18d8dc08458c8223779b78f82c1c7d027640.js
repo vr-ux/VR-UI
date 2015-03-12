@@ -1,4 +1,5 @@
 (function UI(){
+
   var Friend = React.createClass({displayName: "Friend",
     teleportToFriend: function(){
       console.log('teleport!!!')
@@ -19,7 +20,6 @@
         dataType: 'json',
         success: function(data) {
           this.setState({data : data});
-
         }.bind(this),
         error: function(xhr, status, err) {
           console.error(this.ps.url, status, err.toString());
@@ -33,10 +33,10 @@
 
     componentDidMount: function(){
       this.loadFriendsFromServer();
+
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index){
-        World.friends.place(friend.position);
         return (
           React.createElement(Friend, {name: friend.name, key: index})
         );
@@ -48,6 +48,8 @@
       );
     }
   });
+
+
 
   React.render(
     React.createElement(FriendList, {url: "friends.json"}),
