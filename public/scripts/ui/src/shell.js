@@ -11,14 +11,22 @@
     },
     render: function() {
       return (
-        <div className="friend" onClick ={this.teleportToFriend} onMouseOver={this.highlightFriend} onMouseLeave={this.unHighlightFriend}>
+        <li className="friend" onClick ={this.teleportToFriend} onMouseOver={this.highlightFriend} onMouseLeave={this.unHighlightFriend}>
            {this.props.name}
-        </div>
+        </li>
       );
     }
   });
 
   var FriendList = React.createClass({
+    render: function(){
+      return(
+        <ul>{this.props.friends}</ul>
+      );
+    }
+  })
+
+  var FriendPanel = React.createClass({
     loadFriendsFromServer: function(){
       $.ajax({
         url: this.props.url,
@@ -34,15 +42,19 @@
     },
 
     getInitialState: function(){
-      return {data:[]};
+      return {
+        data:[],
+        visible: false
+      };
     },
 
     componentDidMount: function(){
-      key('space', this.handleKeyDown);
+      key('space', this.toggleMenu);
       this.loadFriendsFromServer();
+      setInterval(this.loadFriendsFromServer, this.props.pollInterval)
     },
-    handleKeyDown: function(){
-      console.log('hey down');
+    toggleMenu: function(){
+      this.setState({visible : !this.state.visible});
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index){
@@ -52,15 +64,19 @@
         );
       });
       return (
-        <div className="friendList">
-          {friendNodes}
+        <div className = "friendPanel">
+          <h2>
+            Friends 
+            <span> { this.state.data.length} online</span>
+          </h2>
+          {this.state.visible ? <FriendList friends ={friendNodes}/> : null}
         </div>
       );
     }
   });
 
   React.render(
-    <FriendList url= "friends.json"/>,
+    <FriendPanel url= "friends.json" pollInterval = {2000}/>,
     document.getElementById('uiContainer')
   );
 })();

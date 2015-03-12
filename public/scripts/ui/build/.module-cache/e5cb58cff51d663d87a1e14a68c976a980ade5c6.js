@@ -11,7 +11,7 @@
     },
     render: function() {
       return (
-        React.createElement("li", {className: "friend", onClick: this.teleportToFriend, onMouseOver: this.highlightFriend, onMouseLeave: this.unHighlightFriend}, 
+        React.createElement("div", {className: "friend", onClick: this.teleportToFriend, onMouseOver: this.highlightFriend, onMouseLeave: this.unHighlightFriend}, 
            this.props.name
         )
       );
@@ -21,7 +21,7 @@
   var FriendList = React.createClass({displayName: "FriendList",
     render: function(){
       return(
-        React.createElement("ul", null, this.props.friends)
+        React.createElement("div", null, this.props.friendNodes)
       );
     }
   })
@@ -51,7 +51,6 @@
     componentDidMount: function(){
       key('space', this.toggleMenu);
       this.loadFriendsFromServer();
-      setInterval(this.loadFriendsFromServer, this.props.pollInterval)
     },
     toggleMenu: function(){
       this.setState({visible : !this.state.visible});
@@ -64,11 +63,9 @@
         );
       });
       return (
-        React.createElement("div", {className: "friendPanel"}, 
-          React.createElement("h2", null, 
-            "Friends",  
-            React.createElement("span", null, " ",  this.state.data.length, " online")
-          ), 
+        React.createElement("div", null, 
+          React.createElement("h2", null, "Friends"), 
+          React.createElement("div", null, "friends ", this.state.data.length), 
           this.state.visible ? React.createElement(FriendList, {friends: friendNodes}) : null
         )
       );
@@ -76,7 +73,7 @@
   });
 
   React.render(
-    React.createElement(FriendPanel, {url: "friends.json", pollInterval: 2000}),
+    React.createElement(FriendPanel, {url: "friends.json"}),
     document.getElementById('uiContainer')
   );
 })();

@@ -7,6 +7,9 @@ var Friends = function(){
 
 Friends.prototype.place = function(position, id){
 
+	//Only place if friend hasn't been spawned already;
+   if(this.friends[id])return;
+
    var friend = new THREE.Object3D();
    friend.position.copy(position);
    scene.add(friend);
