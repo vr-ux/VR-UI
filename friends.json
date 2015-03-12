@@ -1,10 +1,17 @@
 [
     {
         "name": "Anitra Appa",
+        "id": 0,
         "position": {"x": 10, "y": 0, "z" : -40}
     },
     {
         "name": "Ben Hoffman",
+        "id": 1,
         "position": {"x": -10, "y": 0, "z" : -20}
+    },
+    {
+        "name": "Douglas Calhoun",
+        "id": 2,
+        "position": {"x": 50, "y": 0, "z" : -40}
     }
 ]

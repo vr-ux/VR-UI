@@ -7,7 +7,7 @@ var randFloat = THREE.Math.randFloat;
 var init = function() {
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-	camera.position.y = 10;
+	camera.position.y = 15;
 	camera.position.z = 30;
 	renderer = new THREE.WebGLRenderer({antialias: true});
 	renderer.setSize(window.innerWidth, window.innerHeight);
@@ -17,9 +17,9 @@ var init = function() {
 	document.body.appendChild(container);
 	container.appendChild(renderer.domElement);
 
-	controls = new THREE.OrbitControls(camera, container);
-	controls.rotateSpeed = .5
-	controls.maxPolarAngle = Math.PI / 2.5;
+	// controls = new THREE.OrbitControls(camera, container);
+	// controls.rotateSpeed = .5
+	// controls.maxPolarAngle = Math.PI / 2.5;
 
 	var geometry = new THREE.PlaneGeometry(2000, 2000, 50, 50);
 	geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
@@ -57,7 +57,7 @@ var init = function() {
 
 var animate = function() {
 	requestAnimationFrame(animate);
-	controls.update();
+	// controls.update();
 	renderer.render(scene, camera);
 }
 

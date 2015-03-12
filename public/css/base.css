@@ -83,9 +83,10 @@ body
 }
 
 .friendList{
-  background: blue;
+  background: rgba(200, 20, 200, 0.5);
 }
 
-.friendList:hover{
+.friend:hover{
   background: red;
+  cursor: pointer;
 }

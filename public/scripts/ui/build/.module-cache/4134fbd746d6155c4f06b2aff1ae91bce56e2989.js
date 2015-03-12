@@ -1,25 +1,22 @@
 (function UI(){
-  var Friend = React.createClass({
+  var Friend = React.createClass({displayName: "Friend",
     teleportToFriend: function(){
-      World.friends.teleport(this.props.id);
+      console.log('teleport!!!')
     },
-    highlightFriend: function(){
-      World.friends.highlight(this.props.id);
-    },
-    unHighlightFriend: function(){
-      console.log('hsh')
-      World.friends.unHighlight(this.props.id);
+    highlightFriend: function(shnur){
+      debugger
+      console.log('mouse over')
     },
     render: function() {
       return (
-        <div className="friend" onClick ={this.teleportToFriend} onMouseOver={this.highlightFriend} onMouseLeave={this.unHighlightFriend}>
-           {this.props.name}
-        </div>
+        React.createElement("div", {className: "friend", onClick: this.teleportToFriend, onMouseOver: this.highlightFriend}, 
+           this.props.name
+        )
       );
     }
   });
 
-  var FriendList = React.createClass({
+  var FriendList = React.createClass({displayName: "FriendList",
     loadFriendsFromServer: function(){
       $.ajax({
         url: this.props.url,
@@ -43,21 +40,21 @@
     },
     render: function() {
       var friendNodes = this.state.data.map(function(friend, index){
-        World.friends.place(friend.position, friend.id);
+        World.friends.place(friend.position);
         return (
-          <Friend name = {friend.name} id = {friend.id} key={index}/>
+          React.createElement(Friend, {name: friend.name, key: index})
         );
       });
       return (
-        <div className="friendList">
-          {friendNodes}
-        </div>
+        React.createElement("div", {className: "friendList"}, 
+          friendNodes
+        )
       );
     }
   });
 
   React.render(
-    <FriendList url= "friends.json"/>,
+    React.createElement(FriendList, {url: "friends.json"}),
     document.getElementById('uiContainer')
   );
 })();
